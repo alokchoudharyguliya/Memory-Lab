@@ -58,5 +58,39 @@ def main():
           output.shape)
     print_memory("AFTER INFERENCE WITH AUTOGRAD")
     del output
+    
+    cleanup()
+    print_memory(
+        "AFTER OUTPUT DELETION"
+    )
+    # INFERENCE WITHOUT GRADIENTS
+    print("\n Inference with no_grad....")
+    with torch.no_grad():
+        output=model(input_ids)
+    print_memory(
+        "After torch.no_grad()"
+    )
+    del output
+
+    cleanup()
+    
+    # INFERENCE MODE
+    print("/n Inferencet with inference_mode....")
+    with torch.inference_mode():
+        output=model(input_ids)
+    print(
+        "After torch.inference_mode()"
+    )
+    del output
+
+    del input_ids
+    del model
+
+    cleanup()
+    
+    print_memory("FINAL")
+    
+if __name__=="__main__":
+    main()
 
     
