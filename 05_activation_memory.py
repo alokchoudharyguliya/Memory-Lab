@@ -1,3 +1,9 @@
+# Torch needs to retain information required for backward propagation -> forward, activations, saved tensors, backward
+# Therefore memory can become large
+# During inference we don't need gradients (forward -> output), therefore many training related tensors don't need to be retained
+# Sequence length -> more intermediate computation -> more activation memory
+
+
 import torch
 import torch.nn as nn
 from memory_utils import(
@@ -92,5 +98,3 @@ def main():
     
 if __name__=="__main__":
     main()
-
-    

@@ -67,3 +67,11 @@ def main():
     
 if __name__=="__main__":
     main()
+    
+    
+# Small Transformer 
+# Model Weights
+# Activation Memory
+# Inference
+# Memory growth
+# FP32 vs FP16/BF16
