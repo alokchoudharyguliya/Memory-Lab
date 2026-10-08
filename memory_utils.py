@@ -54,7 +54,7 @@ def print_memory(label:str):
     
 def cleanup():
     """
-
+    Encourage Python and PyTorch to release unused objects
     
     """
     gc.collect()
@@ -64,6 +64,9 @@ def cleanup():
     
     
 def tensor_memory(tensor:torch.Tensor)->int:
+    """
+    Exact storage required by tensor elements
+    """
     return tensor.numel()*tensor.element_size()
 
 def describe_tensor(name:str, tensor:torch.Tensor):
